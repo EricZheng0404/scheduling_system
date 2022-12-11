@@ -1,0 +1,23 @@
+{% extends "students/layout.html" %}
+
+{% block body %}
+    <h1>今日抽词排班</h1>
+    <h2>今天是 {{ datetime }}, {{ today }}</h1>
+
+    {% for x in coverage %} 
+        {{ x.teacher }} 
+        {{ x.time }}
+        {{ x.student }}<br>
+    {% endfor %} 
+
+    <br>
+
+    <b>还没有安排的学生：</b>
+    {% for x in uncovered_students %} 
+        {{ x }}; 
+    {% endfor %}
+    
+
+
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends "students/layout.html" %}
+
+{% block body %}
+    <h1>今日抽词排班</h1>
+    今天是 {{ datetime }}, {{ today }}
+    <br>
+
+    
+<ol>
+{% with covered_students=[1] %}
+{% for teacher in teachers %}
+    <li>
+        {{ teacher.name }}, {{ teacher.start_time }} to {{ teacher.end_time }}
+    </li>
+        <ul>
+            {% for minutes_slice in teacher.minutes_slices %} 
+                <li>
+                    {{ minutes_slice }}
+
+                    {% for student in students %} 
+                        {% if student.time == minutes_sliceand and student.name not in covered_students %} 
+                            {{ student.name }}
+                            {% with covered_students=covered_students|add:student.name %}
+                            {{ covered_students }}
+                        {% endif %}
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </ul>
+
+{% endfor %}
+</ol>
+
+{% endwith %}        
+{% endblock %}
+
