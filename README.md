@@ -36,4 +36,5 @@ For example, TA A has a start_time of 10:00 and an end_time of 10:30 on Friday, 
 
 ## End Result
 The output will be:
+
 <img width="129" alt="image" src="https://user-images.githubusercontent.com/32259752/207383039-49d4c0a7-a09e-4ce5-9525-d7205413d402.png">
