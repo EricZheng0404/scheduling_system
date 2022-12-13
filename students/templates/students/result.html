@@ -1,0 +1,18 @@
+{% extends "students/layout.html" %}
+
+{% block body %}
+    <h1>今日抽词排班最终结果</h1>
+
+    {% for x in coverage %} 
+        {{ x.teacher }} 
+        {{ x.time }}
+        {{ x.student }}<br>
+    {% endfor %} 
+
+    <br>
+
+    <a href = "{% url 'index' %}">回到今日排班表</a> 
+    
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "students/layout.html" %}
+
+{% block body %}
+    <h1>这是星期{{ day|add:"1" }}预排班</h1>
+
+    {% for x in coverage %} 
+        {{ x.teacher }} 
+        {{ x.time }}
+        {{ x.student }}<br>
+    {% endfor %} 
+
+    <br>
+
+    <b>还没有安排的学生：</b><br>
+    {% for x in uncovered_students %} 
+        {{ x.name }}, {{ x.time }}; <br>
+    {% endfor %}
+    
+
+    
+    <a href = "{% url 'index' %}">回到今日排班表</a> 
+    
+{% endblock %}
+

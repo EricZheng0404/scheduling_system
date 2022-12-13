@@ -1,7 +1,7 @@
 {% extends "students/layout.html" %}
 
 {% block body %}
-    <h1>今日抽词排班</h1>
+    <h1>今日预排班</h1>
     <h2>今天是 {{ datetime }}, {{ today }}</h1>
 
     {% for x in coverage %} 
@@ -12,12 +12,24 @@
 
     <br>
 
-    <b>还没有安排的学生：</b>
+    <b>还没有安排的学生：</b><br>
     {% for x in uncovered_students %} 
-        {{ x }}; 
+        {{ x.name }}, {{ x.time }}; <br>
     {% endfor %}
     
-
-
+    <br>
+    <a href = "{% url 'result' %}">去最终排班表</a> 
+    
+    <h2>去其他时间预先排课表：</h2>
+    <ul>
+        {% for day in days %}
+            <li>
+                <a href="{% url 'day' day.day %}"> 
+                    星期{{ day.day|add:"1" }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    
 {% endblock %}
 
